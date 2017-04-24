@@ -42,11 +42,11 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha'),
+				'actions'=>array('create','captcha','index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','index','view'),
+				'actions'=>array('update','view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -137,13 +137,11 @@ class PmbController extends Controller
 	// /**
 	//  * Lists all models.
 	//  */
-	// public function actionIndex()
-	// {
-	// 	$dataProvider=new CActiveDataProvider('Pmb');
-	// 	$this->render('index',array(
-	// 		'dataProvider'=>$dataProvider,
-	// 	));
-	// }
+	public function actionIndex()
+	{
+		
+		$this->render('index');
+	}
 
 	/**
 	 * Manages all models.
