@@ -9,6 +9,10 @@
 		padding : 3px 5px;
 		border-radius: 4px
 	}
+
+	p{
+		padding: 2px 4px;
+	}
 </style>
 <?php if(Yii::app()->user->hasFlash('contact')){ ?>
 
@@ -44,6 +48,14 @@ $form=$this->beginWidget('CActiveForm', array(
 	// echo $form->errorSummary($model); 
 	?>
 
+	<div class="flash-error">
+		<h3>Pendaftar tidak diperkenankan mengisi form lebih dari sekali. Untuk itu, pastikan data Anda telah siap dan akurat sebelum mengisi form ini. </h3>
+	</div>
+
+	<div class="row">
+		<h3>A. Informasi Umum</h3>
+	</div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'nama_peserta'); ?>
 		<?php echo $form->textField($model,'nama_peserta',array('size'=>60,'maxlength'=>255)); ?>
@@ -75,6 +87,11 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<h3>B. PILIHAN PROGRAM STUDI
+	Pemilihan Program Studi wajib berbeda, mulai Pilihan Prodi Pertama, Pilihan Prodi ke-2 dan Pilihan Prodi ke-3.</h3>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'pilihan_pertama'); ?>
 		<?php 
 		
@@ -95,6 +112,10 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'pilihan_ketiga'); ?>
 		<?php echo $form->dropDownList($model,'pilihan_ketiga',$list); ?>
 		<?php echo $form->error($model,'pilihan_ketiga'); ?>
+	</div>
+
+	<div class="row">
+		<h3>C. IDENTITAS DIRI</h3>
 	</div>
 
 	<div class="row">
@@ -188,6 +209,10 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<h3>D. RIWAYAT PENDIDIKAN</h3>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'sd'); ?>
 		<?php echo $form->textField($model,'sd',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'sd'); ?>
@@ -209,6 +234,11 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'nama_ayah'); ?>
 		<?php echo $form->textField($model,'nama_ayah',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'nama_ayah'); ?>
+	</div>
+
+
+	<div class="row">
+		<h3>E. IDENTITAS ORANG TUA</h3>
 	</div>
 
 	<div class="row">
@@ -257,6 +287,11 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<h3>F. DIKLAT / PENATARAN / PELATIHAN</h3>
+	</div>
+
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'pelatihan'); ?>
 		<?php echo $form->textArea($model,'pelatihan',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'pelatihan'); ?>
@@ -266,6 +301,10 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'skill'); ?>
 		<?php echo $form->textArea($model,'skill',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'skill'); ?>
+	</div>
+
+	<div class="row">
+		<h3>G. INFORMASI PELENGKAP UNTUK ALUMNI KMI GONTOR</h3>
 	</div>
 
 	<div class="row">
@@ -289,6 +328,14 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
+		<h4>Catatan : 
+		<p>
+			 	Untuk selain Alumni Gontor 2017, terdapat tiga kampus; Pusat/Siman (bagi mahasiswa full-timer putra), Gontor (Bagi mahasiswa guru putra dari Pesantren sekitar kampus yang telah disetujui oleh Rektor), dan Mantingan full-timer (bagi mahasiswi full-timer putri)
+
+		</p></h4>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'rencana_studi'); ?>
 		<?php 
 		
@@ -298,6 +345,14 @@ $form=$this->beginWidget('CActiveForm', array(
 		echo $form->dropDownList($model,'rencana_studi',$plans); 
 		?>
 		<?php echo $form->error($model,'rencana_studi'); ?>
+	</div>
+
+	<div class="row">
+		<h4>Pernyataan Tanggungjawab : 
+		<p>
+			 	Dengan ini saya menyatakan bahwa data yang disampaikan dalam formulir ini benar dan dapat dipertanggungjawabkan. Jika data yang saya sampaikan ini tidak benar, saya siap menerima segala resiko yang menjadi akibatnya. 
+
+		</p></h4>
 	</div>
 
 <?php if(CCaptcha::checkRequirements()): ?>
@@ -314,7 +369,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Simpan' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'DAFTAR' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

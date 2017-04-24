@@ -1,2 +1,5 @@
 assets/*
 protected/runtime/*
+
+*.zip
+*.sql
