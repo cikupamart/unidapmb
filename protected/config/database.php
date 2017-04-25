@@ -8,7 +8,7 @@ return array(
 	'connectionString' => 'mysql:host=localhost;dbname=unidagon_pmb',
 	'emulatePrepare' => true,
 	'username' => 'root',
-	'password' => '',
+	'password' => '$up3rgntrr30g',
 	'charset' => 'utf8',
 	
 );
