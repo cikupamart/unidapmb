@@ -198,12 +198,12 @@
 <tr>
 <td align="center" height="17">2</td>
 <td align="left">Pembangunan</td>
-<td align="left">Rp. 700.000,-</td>
+<td align="left">Rp. 850.000,-</td>
 </tr>
 <tr>
 <td align="center" height="17"></td>
 <td align="left"><strong>Total Biaya Pendaftaran</strong></td>
-<td align="left"><strong>Rp. 950.000*</strong></td>
+<td align="left"><strong>Rp. 1050.000*</strong></td>
 </tr>
 </tbody>
 </table>
