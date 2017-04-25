@@ -42,11 +42,11 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import','sendmail','view','print'),
+				'actions'=>array('create','captcha','index','import','sendmail','preview','print'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update',),
+				'actions'=>array('update','view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -59,7 +59,7 @@ class PmbController extends Controller
 		);
 	}
 
-	public function actionPrint($id)
+	public function actionPrint($id,$token)
 	{
 		$pdf = Yii::createComponent('application.extensions.tcpdf.ETcPdf', 
                         'P', 'mm', 'A4', true, 'UTF-8');
@@ -71,20 +71,39 @@ class PmbController extends Controller
 		$pdf->SetAutoPageBreak(TRUE, 0);
 
 		$this->layout = '';
-		ob_start();
+		
 		//echo $this->renderPartial(“createnewpdf“,array(‘content’=>$content));
 		
-		echo $this->renderPartial('print',array(
-			'model'=>$this->loadModel($id),
-		));
-		$data = ob_get_clean();
-		ob_start();
-		$pdf->writeHTML($data);
+		$attr = array(
+			'token'=>$token,
+			'id_pmb'=>$id
+		);
 
-		$pdf->Output();
+		$model = Pmb::model()->findByAttributes($attr);
+		
+
+		if(!empty($model))
+		{
+			ob_start();
+			echo $this->renderPartial('print',array(
+				'model'=>$model
+			));
+
+			$data = ob_get_clean();
+			ob_start();
+			$pdf->writeHTML($data);
+
+			$pdf->Output();
+		}
+
+		else{
+			throw new Exception('Object not found');
+			$this->redirect(array('site/error'));
+		}
+		
 	}
 
-	public function actionSendmail($mailto, $body)
+	private function actionSendmail($mailto, $body)
 	{
 		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: ".$mailto;
 		mail($mailto, "Pendaftaran - UNIDA Gontor", $body,$headers);
@@ -162,6 +181,29 @@ class PmbController extends Controller
 		}
 	}
 
+	public function actionPreview($id,$token)
+	{
+
+		$attr = array(
+			'token'=>$token,
+			'id_pmb'=>$id
+		);
+
+		$model = Pmb::model()->findByAttributes($attr);
+
+		if(!empty($model))
+		{
+			$this->render('preview',array(
+				'model'=>$model,
+			));
+		}
+
+		else{
+			throw new Exception('Object not found');
+			$this->redirect(array('site/error'));
+		}
+	}
+
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -183,14 +225,26 @@ class PmbController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		
 
 		if(isset($_POST['Pmb']))
 		{
 			$model->attributes=$_POST['Pmb'];
+			$token = md5(uniqid(rand(), true));
+			$model->token = $token;
+
 			if($model->save())
 			{
+
+				$body = $this->renderPartial('view',array(
+					'model'=>$model
+				));
+
+				$mailto = $model->email;
+
+				$this->sendmail($mailto, $body);
 				Yii::app()->user->setFlash('contact','Terima kasih telah mendaftar');
-				$this->redirect(array('view','id'=>$model->id_pmb));
+				$this->redirect(array('preview','id'=>$model->id_pmb,'token'=>$model->token));
 			}
 		}
 
