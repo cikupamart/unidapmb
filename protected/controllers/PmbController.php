@@ -286,7 +286,7 @@ class PmbController extends Controller
 
 				$mailto = $model->email;
 
-				$this->sendmail($mailto, htmlentities($body));
+				$this->sendmail($mailto, CHtml::encode($body));
 				Yii::app()->user->setFlash('contact','Terima kasih telah mendaftar');
 				$this->redirect(array('preview','id'=>$model->id_pmb,'token'=>$model->token));
 			}
