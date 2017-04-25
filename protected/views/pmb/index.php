@@ -106,7 +106,7 @@
 </ul>
 <p>PENDAFTARAN ONLINE</p>
 <ol>
-<li>Calon mahasiswa melakukan entry data pengajuan pendaftaran secara online melalui <a href="http://unida.gontor.ac.id/form-pendaftaran/">formulir di link ini.</a></li>
+<li>Calon mahasiswa melakukan entry data pengajuan pendaftaran secara online melalui <a href="<?php echo Yii::app()->createUrl('pmb/create');?>">formulir di link ini.</a></li>
 <li>Calon mahasiswa mencetak tanda bukti pendaftaran online.</li>
 <li>Calon mahasiswa mempersiapkan berkas/persyaratan sesuai dengan ketentuan.</li>
 <li>Calon mahasiswa datang ke kampus UNIDA Gontor untuk menyerahkan tanda bukti pengajuan pendaftaran dan kelengkapan berkas.</li>

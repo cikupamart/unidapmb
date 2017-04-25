@@ -42,7 +42,7 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index'),
+				'actions'=>array('create','captcha','index','import'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -57,6 +57,77 @@ class PmbController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	private function actionImport()
+	{
+		$row = 1;
+		if (($handle = fopen($_SERVER['DOCUMENT_ROOT'].'/'.Yii::app()->baseUrl."/form1.csv", "r")) !== FALSE) {
+		  while (($hsl = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		    $num = count($hsl);
+
+		    $data = $hsl;
+		    for ($c=0; $c < $num; $c++) {
+		       if(empty($data[$c]))
+		       	   $data[$c] = '-';
+		    }
+
+
+		    $pmb = new Pmb;
+	    	$pmb->nama_peserta 			= $data[0];
+			$pmb->tempat_lahir 			= $data[1];
+			$pmb->tanggal_lahir 		= $data[2];
+			$pmb->jenis_kelamin= $data[3];
+			$pmb->pilihan_pertama= $data[4];
+			$pmb->pilihan_kedua= $data[5];
+			$pmb->pilihan_ketiga= $data[6];
+			$pmb->alamat_lengkap= $data[7];
+			$pmb->desa= $data[8];
+			$pmb->kecamatan= $data[9];
+			$pmb->kabupaten= $data[10];
+			$pmb->propinsi= $data[11];
+			$pmb->kodepos= $data[12];
+			$pmb->telp= $data[13];
+			$pmb->hp= $data[14];
+			$pmb->email= $data[15];
+			$pmb->pesantren= $data[16];
+			$pmb->nama_pesantren= $data[17];
+			$pmb->tahun_lulus= $data[18];
+			$pmb->lama_pendidikan= $data[19];
+			$pmb->takhassus= $data[20];
+			$pmb->sd= $data[21];
+			$pmb->smp= $data[22];
+			$pmb->sma= $data[23];
+			$pmb->nama_ayah= $data[24];
+			$pmb->pendidikan_ayah= $data[25];
+			$pmb->pekerjaan_ayah= $data[26];
+			$pmb->penghasilan_ayah= $data[27];
+			$pmb->nama_ibu= $data[28];
+			$pmb->pendidikan_ibu= $data[29];
+			$pmb->pekerjaan_ibu= $data[30];
+			$pmb->penghasilan_ibu= $data[31];
+			$pmb->pelatihan= $data[32];
+			$pmb->skill= $data[33];
+			$pmb->is_alumni= $data[34];
+			$pmb->kampus_tujuan= $data[35];
+			$pmb->rencana_studi= $data[36];
+			
+	        if($pmb->validate())
+	        {
+	        	$pmb->save();
+	        }
+
+	        else{
+	        	print_r($pmb->getErrors()); 
+	        }
+		    // echo "<p>$num fields in line $row: <br /></p>\n";
+		    $row++;
+		    // for ($c=0; $c < $num; $c++) {
+		    //     echo $data[$c] . "<br />\n";
+		    // }
+		  }
+		  fclose($handle);
+		}
 	}
 
 	/**

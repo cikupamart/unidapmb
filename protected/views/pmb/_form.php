@@ -221,19 +221,19 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sd'); ?>
-		<?php echo $form->textField($model,'sd',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textArea($model,'sd',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'sd'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'smp'); ?>
-		<?php echo $form->textField($model,'smp',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textArea($model,'smp',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'smp'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sma'); ?>
-		<?php echo $form->textField($model,'sma',array('size'=>60,'maxlength'=>255)); ?>
+	<?php echo $form->textArea($model,'sma',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'sma'); ?>
 	</div>
 
