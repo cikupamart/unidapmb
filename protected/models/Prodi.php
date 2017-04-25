@@ -28,7 +28,7 @@ class Prodi extends CActiveRecord
 			array('nama_prodi', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_prodi, nama_prodi', 'safe', 'on'=>'search'),
+			array('id_prodi, nama_prodi, urutan', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +52,12 @@ class Prodi extends CActiveRecord
 			'id_prodi' => 'Id Prodi',
 			'nama_prodi' => 'Nama Prodi',
 		);
+	}
+
+	public function scopes() {
+	    return array(
+	        'byurutan' => array('order' => 'urutan ASC'),
+	    );
 	}
 
 	/**

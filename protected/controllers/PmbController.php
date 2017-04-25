@@ -42,11 +42,11 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import','sendmail'),
+				'actions'=>array('create','captcha','index','import','sendmail','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','view'),
+				'actions'=>array('update',),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -59,10 +59,10 @@ class PmbController extends Controller
 		);
 	}
 
-	public function actionSendmail()
+	public function actionSendmail($mailto, $body)
 	{
-		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: vinux.edu@gmail.com";
-		mail('rektorat@unida.gontor.ac.id', "some Subject", "some Message",$headers);
+		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: ".$mailto;
+		mail($mailto, "Pendaftaran - UNIDA Gontor", $body,$headers);
 	}
 
 	private function actionImport()
@@ -165,7 +165,7 @@ class PmbController extends Controller
 			if($model->save())
 			{
 				Yii::app()->user->setFlash('contact','Terima kasih telah mendaftar');
-				$this->refresh();
+				$this->redirect(array('view','id'=>$model->id_pmb));
 			}
 		}
 

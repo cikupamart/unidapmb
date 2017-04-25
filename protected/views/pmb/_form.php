@@ -102,7 +102,7 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'pilihan_pertama'); ?>
 		<?php 
 		
-		$list = CHtml::listData(Prodi::model()->findAll(),'nama_prodi','nama_prodi');
+		$list = CHtml::listData(Prodi::model()->byurutan()->findAll(),'nama_prodi','nama_prodi');
 		echo $form->dropDownList($model,'pilihan_pertama',$list); 
 
 		?>
