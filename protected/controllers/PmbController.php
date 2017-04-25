@@ -42,7 +42,7 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import','sendmail','view'),
+				'actions'=>array('create','captcha','index','import','sendmail','view','print'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -57,6 +57,31 @@ class PmbController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function actionPrint($id)
+	{
+		$pdf = Yii::createComponent('application.extensions.tcpdf.ETcPdf', 
+                        'P', 'mm', 'A4', true, 'UTF-8');
+
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+		
+		$pdf->AddPage();
+		$pdf->SetAutoPageBreak(TRUE, 0);
+
+		$this->layout = '';
+		ob_start();
+		//echo $this->renderPartial(“createnewpdf“,array(‘content’=>$content));
+		
+		echo $this->renderPartial('print',array(
+			'model'=>$this->loadModel($id),
+		));
+		$data = ob_get_clean();
+		ob_start();
+		$pdf->writeHTML($data);
+
+		$pdf->Output();
 	}
 
 	public function actionSendmail($mailto, $body)

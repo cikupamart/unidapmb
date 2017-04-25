@@ -15,4 +15,8 @@
 
 <h1>Form Pendaftaran</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php 
+
+$this->renderPartial('_form', array('model'=>$model)); 
+
+?>

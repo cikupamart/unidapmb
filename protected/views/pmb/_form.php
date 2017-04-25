@@ -53,8 +53,17 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<?php 
 	// echo $form->errorSummary($model); 
+
+$token = md5(uniqid(rand(), true));
+
+
+if($model->isNewRecord){
 	?>
 
+<input type="text" name="token" value="<?php echo $token;?>"/>
+<?php 
+}
+?>
 	<div class="flash-error">
 		<h3>Pendaftar tidak diperkenankan mengisi form lebih dari sekali. Untuk itu, pastikan data Anda telah siap dan akurat sebelum mengisi form ini. </h3>
 	</div>
