@@ -28,7 +28,14 @@
 
 <?php 
 $jobs = array(
-	'SD','SLTP/Tsanawiyah','SMA/SMK/MA','D2/D3','S1','S2','S3','Tidak Sekolah'
+	'SD'=>'SD',
+	'SLTP/Tsanawiyah'=>'SLTP/Tsanawiyah',
+	'SMA/SMK/MA'=>'SMA/SMK/MA',
+	'D2/D3'=>'D2/D3',
+	'S1'=>'S1',
+	'S2'=>'S2',
+	'S3'=>'S3',
+	'Tidak Sekolah'=>'Tidak Sekolah'
 );
 
 
@@ -78,8 +85,8 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'jenis_kelamin'); ?>
 		<?php 
 		$jklist = array(
-				'1' => 'Laki-laki',
-				'2' => 'Perempuan'
+				'Laki-laki' => 'Laki-laki',
+				'Perempuan' => 'Perempuan'
 			);
 		echo $form->dropDownList($model,'jenis_kelamin',$jklist); 
 		?>
@@ -95,7 +102,7 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'pilihan_pertama'); ?>
 		<?php 
 		
-		$list = CHtml::listData(Prodi::model()->findAll(),'id_prodi','nama_prodi');
+		$list = CHtml::listData(Prodi::model()->findAll(),'nama_prodi','nama_prodi');
 		echo $form->dropDownList($model,'pilihan_pertama',$list); 
 
 		?>
@@ -176,8 +183,8 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($model,'pesantren'); ?>
 		<?php 
 		$issantren = array(
-				'1' => 'Ya',
-				'2' => 'Tidak'
+				'Ya' => 'Ya',
+				'Tidak' => 'Tidak'
 			);
 		echo $form->dropDownList($model,'pesantren',$issantren); 
 		?>
@@ -321,7 +328,7 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php 
 		
 
-		$list = CHtml::listData(Kampus::model()->findAll(),'id_kampus','nama_kampus');
+		$list = CHtml::listData(Kampus::model()->findAll(),'nama_kampus','nama_kampus');
 		echo $form->dropDownList($model,'kampus_tujuan',$list); 
 		?>
 		<?php echo $form->error($model,'kampus_tujuan'); ?>
@@ -340,7 +347,9 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php 
 		
 		$plans = array(
-			'1 Tahun','4 Tahun (S1)'
+			'1 Tahun'=> '1 Tahun',
+			'4 Tahun (S1)'=>'4 Tahun (S1)'
+			
 		);
 		echo $form->dropDownList($model,'rencana_studi',$plans); 
 		?>
