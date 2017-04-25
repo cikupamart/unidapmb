@@ -69,14 +69,14 @@ class Pmb extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			// array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 			array('nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, hp, email, pesantren, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi', 'required','message'=>'{attribute} tidak boleh kosong'),
-
-			// array('nama_peserta, tempat_lahir, tanggal_lahir, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, nama_pesantren, takhassus, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu', 'length', 'max'=>255),
+			
+			array('nama_peserta, tempat_lahir, tanggal_lahir, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, nama_pesantren, takhassus, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu', 'length', 'max'=>255),
 			array('jenis_kelamin, telp, hp, kampus_tujuan, rencana_studi', 'length', 'max'=>50),
 			array('kodepos, pesantren, tahun_lulus, is_alumni', 'length', 'max'=>20),
 			array('email, lama_pendidikan', 'length', 'max'=>100),
-			// array('email','email'),
+			array('email','email'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_pmb, nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, kodepos, telp, hp, email, pesantren, nama_pesantren, tahun_lulus, lama_pendidikan, takhassus, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi, created', 'safe', 'on'=>'search'),
