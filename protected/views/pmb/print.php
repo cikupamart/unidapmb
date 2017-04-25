@@ -1,4 +1,5 @@
 
+<h2>Pendaftaran Mahasiswa Baru Universitas Darussalam Gontor 2017</h2>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
