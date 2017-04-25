@@ -42,7 +42,7 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import'),
+				'actions'=>array('create','captcha','index','import','sendmail'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -57,6 +57,12 @@ class PmbController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function actionSendmail()
+	{
+		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: vinux.edu@gmail.com";
+		mail('rektorat@unida.gontor.ac.id', "some Subject", "some Message",$headers);
 	}
 
 	private function actionImport()
