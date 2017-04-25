@@ -122,9 +122,10 @@ class InfoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Info');
+		$model = Info::model()->findByAttributes(array('kode_info'=> 'INFO'));
+		// $dataProvider=new CActiveDataProvider('Info');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 
