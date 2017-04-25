@@ -42,7 +42,7 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import','sendmail','preview','print'),
+				'actions'=>array('create','captcha','index','import','preview','print'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -103,7 +103,7 @@ class PmbController extends Controller
 		
 	}
 
-	private function actionSendmail($mailto, $body)
+	private function sendmail($mailto, $body)
 	{
 		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: ".$mailto;
 		mail($mailto, "Pendaftaran - UNIDA Gontor", $body,$headers);
