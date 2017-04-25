@@ -74,7 +74,7 @@ class Pmb extends CActiveRecord
 			
 			array('nama_peserta, tempat_lahir, tanggal_lahir, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, nama_pesantren, takhassus, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu', 'length', 'max'=>255),
 			array('jenis_kelamin, telp, hp, kampus_tujuan, rencana_studi', 'length', 'max'=>50),
-			array('kodepos, pesantren, tahun_lulus, is_alumni', 'length', 'max'=>20),
+			array('kodepos, pesantren, tahun_lulus, is_alumni', 'length', 'max'=>255),
 			array('email, lama_pendidikan', 'length', 'max'=>100),
 			array('email','email'),
 			// The following rule is used by search().
@@ -142,7 +142,7 @@ class Pmb extends CActiveRecord
 			'is_alumni' => 'Apakah Anda Alumni Gontor?',
 			'kampus_tujuan' => 'Di kampus mana Anda akan mengikuti perkuliahan?',
 			'rencana_studi' => 'Rencana Studi di UNIDA',
-			'created' => 'Created',
+			'created' => 'Waktu Daftar',
 			'verifyCode'=>'Verification Code',
 		);
 	}
@@ -204,6 +204,7 @@ class Pmb extends CActiveRecord
 		$criteria->compare('kampus_tujuan',$this->kampus_tujuan,true);
 		$criteria->compare('rencana_studi',$this->rencana_studi,true);
 		$criteria->compare('created',$this->created,true);
+		$criteria->order = 'created DESC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

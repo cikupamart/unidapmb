@@ -62,7 +62,7 @@ class PmbController extends Controller
 	private function actionImport()
 	{
 		$row = 1;
-		if (($handle = fopen($_SERVER['DOCUMENT_ROOT'].'/'.Yii::app()->baseUrl."/form1.csv", "r")) !== FALSE) {
+		if (($handle = fopen($_SERVER['DOCUMENT_ROOT'].'/'.Yii::app()->baseUrl."/datapmb.csv", "r")) !== FALSE) {
 		  while (($hsl = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		    $num = count($hsl);
 
@@ -111,7 +111,8 @@ class PmbController extends Controller
 			$pmb->is_alumni= $data[34];
 			$pmb->kampus_tujuan= $data[35];
 			$pmb->rencana_studi= $data[36];
-			
+			$pmb->created = $data[37];
+
 	        if($pmb->validate())
 	        {
 	        	$pmb->save();
@@ -134,12 +135,12 @@ class PmbController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	// public function actionView($id)
-	// {
-	// 	$this->render('view',array(
-	// 		'model'=>$this->loadModel($id),
-	// 	));
-	// }
+	public function actionView($id)
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
 
 	/**
 	 * Creates a new model.
@@ -217,17 +218,17 @@ class PmbController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	// public function actionAdmin()
-	// {
-	// 	$model=new Pmb('search');
-	// 	$model->unsetAttributes();  // clear any default values
-	// 	if(isset($_GET['Pmb']))
-	// 		$model->attributes=$_GET['Pmb'];
+	public function actionAdmin()
+	{
+		$model=new Pmb('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Pmb']))
+			$model->attributes=$_GET['Pmb'];
 
-	// 	$this->render('admin',array(
-	// 		'model'=>$model,
-	// 	));
-	// }
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

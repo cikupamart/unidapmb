@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Pmb', 'url'=>array('index')),
+
 	array('label'=>'Create Pmb', 'url'=>array('create')),
 	array('label'=>'View Pmb', 'url'=>array('view', 'id'=>$model->id_pmb)),
 	array('label'=>'Manage Pmb', 'url'=>array('admin')),

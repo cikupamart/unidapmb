@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Pmb', 'url'=>array('index')),
+
 	array('label'=>'Create Pmb', 'url'=>array('create')),
 );
 
@@ -45,12 +45,17 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id_pmb',
+		array(
+			'header' => 'No',
+			'value'	=> '$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize + ($row+1)',
+		),
 		'nama_peserta',
 		'tempat_lahir',
 		'tanggal_lahir',
 		'jenis_kelamin',
 		'pilihan_pertama',
+		'created',
+		
 		/*
 		'pilihan_kedua',
 		'pilihan_ketiga',
@@ -84,7 +89,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'is_alumni',
 		'kampus_tujuan',
 		'rencana_studi',
-		'created',
 		*/
 		array(
 			'class'=>'CButtonColumn',

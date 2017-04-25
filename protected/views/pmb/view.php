@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Pmb', 'url'=>array('index')),
+	
 	array('label'=>'Create Pmb', 'url'=>array('create')),
 	array('label'=>'Update Pmb', 'url'=>array('update', 'id'=>$model->id_pmb)),
 	array('label'=>'Delete Pmb', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_pmb),'confirm'=>'Are you sure you want to delete this item?')),
