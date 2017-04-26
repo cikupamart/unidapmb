@@ -248,13 +248,10 @@ class PmbController extends Controller
 			{
 
 				$body = '
-
+<html><body>
 <div class="flash-success">
 	Terima kasih telah mendaftar</div>
-
-</h1>
-
-<table class="detail-view" id="yw0"><tr class="odd"><th>Nama Peserta</th><td>'.$model->nama_peserta.'</td></tr>
+Nama Peserta</th><td>'.$model->nama_peserta.'</td></tr>
 <tr class="even"><th>Tempat Lahir</th><td>'.$model->tempat_lahir.'</td></tr>
 <tr class="odd"><th>Tanggal Lahir</th><td>'.$model->tanggal_lahir.'</td></tr>
 <tr class="even"><th>Jenis Kelamin</th><td>'.$model->jenis_kelamin.'</td></tr>
@@ -292,7 +289,7 @@ class PmbController extends Controller
 <tr class="even"><th>Di kampus mana Anda akan mengikuti perkuliahan?</th><td>'.$model->kampus_tujuan.'</td></tr>
 <tr class="odd"><th>Rencana Studi di UNIDA</th><td>'.$model->rencana_studi.'</td></tr>
 <tr class="even"><th>Waktu Daftar</th><td>'.$model->created.'</td></tr>
-</table>
+</table></body></html>
 				';
 
 				$mailto = $model->email;
