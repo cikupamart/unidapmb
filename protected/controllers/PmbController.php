@@ -248,48 +248,46 @@ class PmbController extends Controller
 			{
 
 				$body = '
-<html><body>
-<div class="flash-success">
-	Terima kasih telah mendaftar</div>
-Nama Peserta</th><td>'.$model->nama_peserta.'</td></tr>
-<tr class="even"><th>Tempat Lahir</th><td>'.$model->tempat_lahir.'</td></tr>
-<tr class="odd"><th>Tanggal Lahir</th><td>'.$model->tanggal_lahir.'</td></tr>
-<tr class="even"><th>Jenis Kelamin</th><td>'.$model->jenis_kelamin.'</td></tr>
-<tr class="odd"><th>Pilihan Pertama</th><td>'.$model->pilihan_pertama.'</td></tr>
-<tr class="even"><th>Pilihan Kedua</th><td>'.$model->pilihan_kedua.'</td></tr>
-<tr class="odd"><th>Pilihan Ketiga</th><td>'.$model->pilihan_ketiga.'</td></tr>
-<tr class="even"><th>Alamat Lengkap</th><td>'.$model->alamat_lengkap.'</td></tr>
-<tr class="odd"><th>Desa/Kelurahan</th><td>'.$model->desa.'</td></tr>
-<tr class="even"><th>Kecamatan</th><td>'.$model->nama_peserta.'</td></tr>
-<tr class="odd"><th>Kabupaten/Kota</th><td>'.$model->kecamatan.'</td></tr>
-<tr class="even"><th>Propinsi</th><td>'.$model->kabupaten.'</td></tr>
-<tr class="odd"><th>Kodepos</th><td>'.$model->propinsi.'</td></tr>
-<tr class="even"><th>No. Telp</th><td>'.$model->telp.'</td></tr>
-<tr class="odd"><th>No. Handphone</th><td>'.$model->hp.'</td></tr>
-<tr class="even"><th>Email</th><td>'.$model->email.'</td></tr>
-<tr class="odd"><th>Pesantren</th><td>'.$model->pesantren.'</td></tr>
-<tr class="even"><th>Nama Pesantren</th><td>'.$model->nama_pesantren.'</td></tr>
-<tr class="odd"><th>Tahun Lulus</th><td>'.$model->tahun_lulus.'</td></tr>
-<tr class="even"><th>Lama Pendidikan</th><td>'.$model->lama_pendidikan.'</td></tr>
-<tr class="odd"><th>Takhassus</th><td>'.$model->takhassus.'</td></tr>
-<tr class="even"><th>SD/MI</th><td>'.$model->sd.'</td></tr>
-<tr class="odd"><th>SMP/TSANAWIYAH</th><td>'.$model->smp.'</td></tr>
-<tr class="even"><th>SMA/SMK/MA</th><td>'.$model->sma.'</td></tr>
-<tr class="odd"><th>Nama Ayah</th><td>'.$model->nama_ayah.'</td></tr>
-<tr class="even"><th>Pendidikan Terakhir</th><td>'.$model->pendidikan_ayah.'</td></tr>
-<tr class="odd"><th>Pekerjaan</th><td>'.$model->pekerjaan_ayah.'</td></tr>
-<tr class="even"><th>Penghasilan Per Bulan</th><td>'.$model->penghasilan_ayah.'</td></tr>
-<tr class="odd"><th>Nama Ibu</th><td>'.$model->nama_ibu.'</td></tr>
-<tr class="even"><th>Pendidikan Terkahir</th><td>'.$model->pendidikan_ibu.'</td></tr>
-<tr class="odd"><th>Pekerjaan</th><td>'.$model->pekerjaan_ibu.'</td></tr>
-<tr class="even"><th>Penghasilan Per Bulan</th><td>'.$model->penghasilan_ibu.'</td></tr>
-<tr class="odd"><th>Pelatihan yang pernah diikuti</th><td>'.$model->pelatihan.'</td></tr>
-<tr class="even"><th>Skill/Keterampilan/Bakat yang dimiliki</th><td>'.$model->skill.'</td></tr>
-<tr class="odd"><th>Apakah Anda Alumni Gontor?</th><td>'.$model->is_alumni.'</td></tr>
-<tr class="even"><th>Di kampus mana Anda akan mengikuti perkuliahan?</th><td>'.$model->kampus_tujuan.'</td></tr>
-<tr class="odd"><th>Rencana Studi di UNIDA</th><td>'.$model->rencana_studi.'</td></tr>
-<tr class="even"><th>Waktu Daftar</th><td>'.$model->created.'</td></tr>
-</table></body></html>
+Terima kasih telah mendaftar
+Nama Peserta: '.$model->nama_peserta.'
+Tempat Lahir : '.$model->tempat_lahir.'
+Tanggal Lahir : '.$model->tanggal_lahir.'
+Jenis Kelamin : '.$model->jenis_kelamin.'
+Pilihan Pertama : '.$model->pilihan_pertama.'
+Pilihan Kedua : '.$model->pilihan_kedua.'
+Pilihan Ketiga : '.$model->pilihan_ketiga.'
+Alamat Lengkap : '.$model->alamat_lengkap.'
+Desa/Kelurahan : '.$model->desa.'
+Kecamatan : '.$model->nama_peserta.'
+Kabupaten/Kota : '.$model->kecamatan.'
+Propinsi : '.$model->kabupaten.'
+Kodepos : '.$model->propinsi.'
+No. Telp : '.$model->telp.'
+No. Handphone : '.$model->hp.'
+Email : '.$model->email.'
+Pesantren : '.$model->pesantren.'
+Nama Pesantren : '.$model->nama_pesantren.'
+Tahun Lulus : '.$model->tahun_lulus.'
+Lama Pendidikan : '.$model->lama_pendidikan.'
+Takhassus : '.$model->takhassus.'
+SD/MI : '.$model->sd.'
+SMP/TSANAWIYAH : '.$model->smp.'
+SMA/SMK/MA : '.$model->sma.'
+Nama Ayah : '.$model->nama_ayah.'
+Pendidikan Terakhir : '.$model->pendidikan_ayah.'
+Pekerjaan : '.$model->pekerjaan_ayah.'
+Penghasilan Per Bulan : '.$model->penghasilan_ayah.'
+Nama Ibu : '.$model->nama_ibu.'
+Pendidikan Terkahir : '.$model->pendidikan_ibu.'
+Pekerjaan : '.$model->pekerjaan_ibu.'
+Penghasilan Per Bulan : '.$model->penghasilan_ibu.'
+Pelatihan yang pernah diikuti : '.$model->pelatihan.'
+Skill/Keterampilan/Bakat yang dimiliki : '.$model->skill.'
+Apakah Anda Alumni Gontor? : '.$model->is_alumni.'
+Di kampus mana Anda akan mengikuti perkuliahan? : '.$model->kampus_tujuan.'
+Rencana Studi di UNIDA : '.$model->rencana_studi.'
+Waktu Daftar : '.$model->created.'
+
 				';
 
 				$mailto = $model->email;
