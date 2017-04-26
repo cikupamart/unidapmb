@@ -105,7 +105,18 @@ class PmbController extends Controller
 
 	private function sendmail($mailto, $body)
 	{
-		$headers="From: rektorat@unida.gontor.ac.id\r\nReply-To: ".$mailto;
+
+		$headers = "From: rektorat@unida.gontor.ac.id"; 
+		 
+		
+		$semi_rand = md5(time()); 
+		$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
+		
+		$headers .= "\nMIME-Version: 1.0\n" . 
+		"Content-Type: multipart/mixed;\n" . 
+		" boundary=\"{$mime_boundary}\""; 
+
+
 		mail($mailto, "Pendaftaran - UNIDA Gontor", $body,$headers);
 	}
 
