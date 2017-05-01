@@ -312,7 +312,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
-		<h3>G. INFORMASI PELENGKAP UNTUK ALUMNI KMI GONTOR</h3>
+		<h3>G. INFORMASI PELENGKAP UNTUK ALUMNI KMI GONTOR 2017</h3>
 	</div>
 
 	<div class="row">
@@ -338,7 +338,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	<div class="row">
 		<h4>Catatan : 
 		<p>
-			 	Untuk selain Alumni Gontor 2017, terdapat tiga kampus; Pusat/Siman (bagi mahasiswa full-timer putra), Gontor (Bagi mahasiswa guru putra dari Pesantren sekitar kampus yang telah disetujui oleh Rektor), dan Mantingan full-timer (bagi mahasiswi full-timer putri)
+			 	Untuk selain Alumni Gontor, terdapat tiga kampus; Pusat/Siman (bagi mahasiswa full-timer putra), Gontor (Bagi mahasiswa guru putra dari Pesantren sekitar kampus yang telah disetujui oleh Rektor), dan Mantingan full-timer (bagi mahasiswi full-timer putri)
 
 		</p></h4>
 	</div>
