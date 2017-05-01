@@ -139,7 +139,7 @@ class Pmb extends CActiveRecord
 			'penghasilan_ibu' => 'Penghasilan Per Bulan',
 			'pelatihan' => 'Pelatihan yang pernah diikuti',
 			'skill' => 'Skill/Keterampilan/Bakat yang dimiliki',
-			'is_alumni' => 'Apakah Anda Alumni Gontor?',
+			'is_alumni' => 'Apakah Anda Alumni Gontor 2017 ?',
 			'kampus_tujuan' => 'Di kampus mana Anda akan mengikuti perkuliahan?',
 			'rencana_studi' => 'Rencana Studi di UNIDA',
 			'created' => 'Waktu Daftar',
