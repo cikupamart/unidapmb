@@ -238,17 +238,17 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->error($model,'sma'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'nama_ayah'); ?>
-		<?php echo $form->textField($model,'nama_ayah',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'nama_ayah'); ?>
-	</div>
 
 
 	<div class="row">
 		<h3>E. IDENTITAS ORANG TUA</h3>
 	</div>
-
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'nama_ayah'); ?>
+		<?php echo $form->textField($model,'nama_ayah',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'nama_ayah'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'pendidikan_ayah'); ?>
 		<?php 

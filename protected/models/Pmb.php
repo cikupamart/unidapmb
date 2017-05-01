@@ -70,7 +70,7 @@ class Pmb extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
-			array('nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, hp, email, pesantren, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi', 'required','message'=>'{attribute} tidak boleh kosong'),
+			array('nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, hp, email, pesantren, sd, smp, sma, nama_ayah, pendidikan_ayah, penghasilan_ayah,pekerjaan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi', 'required','message'=>'{attribute} tidak boleh kosong'),
 			
 			array('nama_peserta, tempat_lahir, tanggal_lahir, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, nama_pesantren, takhassus, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu', 'length', 'max'=>255),
 			array('jenis_kelamin, telp, hp, kampus_tujuan, rencana_studi', 'length', 'max'=>50),
