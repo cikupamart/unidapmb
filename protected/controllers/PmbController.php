@@ -234,6 +234,8 @@ class PmbController extends Controller
 	{
 		$model=new Pmb;
 
+
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
@@ -248,49 +250,58 @@ class PmbController extends Controller
 			{
 
 				$body = '
-Terima kasih telah mendaftar
-Nama Peserta: '.$model->nama_peserta.'
-Tempat Lahir : '.$model->tempat_lahir.'
-Tanggal Lahir : '.$model->tanggal_lahir.'
-Jenis Kelamin : '.$model->jenis_kelamin.'
-Pilihan Pertama : '.$model->pilihan_pertama.'
-Pilihan Kedua : '.$model->pilihan_kedua.'
-Pilihan Ketiga : '.$model->pilihan_ketiga.'
-Alamat Lengkap : '.$model->alamat_lengkap.'
-Desa/Kelurahan : '.$model->desa.'
-Kecamatan : '.$model->nama_peserta.'
-Kabupaten/Kota : '.$model->kecamatan.'
-Propinsi : '.$model->kabupaten.'
-Kodepos : '.$model->propinsi.'
-No. Telp : '.$model->telp.'
-No. Handphone : '.$model->hp.'
-Email : '.$model->email.'
-Pesantren : '.$model->pesantren.'
-Nama Pesantren : '.$model->nama_pesantren.'
-Tahun Lulus : '.$model->tahun_lulus.'
-Lama Pendidikan : '.$model->lama_pendidikan.'
-Takhassus : '.$model->takhassus.'
-SD/MI : '.$model->sd.'
-SMP/TSANAWIYAH : '.$model->smp.'
-SMA/SMK/MA : '.$model->sma.'
-Nama Ayah : '.$model->nama_ayah.'
-Pendidikan Terakhir : '.$model->pendidikan_ayah.'
-Pekerjaan : '.$model->pekerjaan_ayah.'
-Penghasilan Per Bulan : '.$model->penghasilan_ayah.'
-Nama Ibu : '.$model->nama_ibu.'
-Pendidikan Terkahir : '.$model->pendidikan_ibu.'
-Pekerjaan : '.$model->pekerjaan_ibu.'
-Penghasilan Per Bulan : '.$model->penghasilan_ibu.'
-Pelatihan yang pernah diikuti : '.$model->pelatihan.'
-Skill/Keterampilan/Bakat yang dimiliki : '.$model->skill.'
-Apakah Anda Alumni Gontor? : '.$model->is_alumni.'
-Di kampus mana Anda akan mengikuti perkuliahan? : '.$model->kampus_tujuan.'
-Rencana Studi di UNIDA : '.$model->rencana_studi.'
-Waktu Daftar : '.$model->created.'
+					Terima kasih telah mendaftar
+					Nama Peserta: '.$model->nama_peserta.'
+					Tempat Lahir : '.$model->tempat_lahir.'
+					Tanggal Lahir : '.$model->tanggal_lahir.'
+					Jenis Kelamin : '.$model->jenis_kelamin.'
+					Pilihan Pertama : '.$model->pilihan_pertama.'
+					Pilihan Kedua : '.$model->pilihan_kedua.'
+					Pilihan Ketiga : '.$model->pilihan_ketiga.'
+					Alamat Lengkap : '.$model->alamat_lengkap.'
+					Desa/Kelurahan : '.$model->desa.'
+					Kecamatan : '.$model->nama_peserta.'
+					Kabupaten/Kota : '.$model->kecamatan.'
+					Propinsi : '.$model->kabupaten.'
+					Kodepos : '.$model->propinsi.'
+					No. Telp : '.$model->telp.'
+					No. Handphone : '.$model->hp.'
+					Email : '.$model->email.'
+					Pesantren : '.$model->pesantren.'
+					Nama Pesantren : '.$model->nama_pesantren.'
+					Tahun Lulus : '.$model->tahun_lulus.'
+					Lama Pendidikan : '.$model->lama_pendidikan.'
+					Takhassus : '.$model->takhassus.'
+					SD/MI : '.$model->sd.'
+					SMP/TSANAWIYAH : '.$model->smp.'
+					SMA/SMK/MA : '.$model->sma.'
+					Nama Ayah : '.$model->nama_ayah.'
+					Pendidikan Terakhir : '.$model->pendidikan_ayah.'
+					Pekerjaan : '.$model->pekerjaan_ayah.'
+					Penghasilan Per Bulan : '.$model->penghasilan_ayah.'
+					Nama Ibu : '.$model->nama_ibu.'
+					Pendidikan Terkahir : '.$model->pendidikan_ibu.'
+					Pekerjaan : '.$model->pekerjaan_ibu.'
+					Penghasilan Per Bulan : '.$model->penghasilan_ibu.'
+					Pelatihan yang pernah diikuti : '.$model->pelatihan.'
+					Skill/Keterampilan/Bakat yang dimiliki : '.$model->skill.'
+					Apakah Anda Alumni Gontor? : '.$model->is_alumni.'
+					Di kampus mana Anda akan mengikuti perkuliahan? : '.$model->kampus_tujuan.'
+					Rencana Studi di UNIDA : '.$model->rencana_studi.'
+					Waktu Daftar : '.$model->created.'
 
 				';
 
 				$mailto = $model->email;
+
+				$emails = Yii::app()->params->emails;
+
+				foreach($emails as $q => $v)
+				{
+					$this->sendmail($v, CHtml::decode(CHtml::decode(CHtml::decode($body))));					
+				}
+
+
 
 				$this->sendmail($mailto, CHtml::decode(CHtml::decode(CHtml::decode($body))));
 				Yii::app()->user->setFlash('contact','Terima kasih telah mendaftar');

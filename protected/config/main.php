@@ -79,7 +79,13 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
+		'emails' => array(
+			'taufik' => 'taufikaffandi@gontor.ac.id',
+			'eko' => 'ekoprasetiowidhi@unida.gontor.ac.id',
+			'pmb' => 'pmb@unida.gontor.ac.id',
+			'mantingan' => 'baakmantingan@gmail.com'
+		),
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'oddy@unida.gontor.ac.id',
 	),
 );
