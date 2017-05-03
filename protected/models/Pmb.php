@@ -121,7 +121,7 @@ class Pmb extends CActiveRecord
 			'telp' => 'No. Telp',
 			'hp' => 'No. Handphone',
 			'email' => 'Email',
-			'pesantren' => 'Pesantren',
+			'pesantren' => 'Pendidikan Pesantren',
 			'nama_pesantren' => 'Nama Pesantren',
 			'tahun_lulus' => 'Tahun Lulus',
 			'lama_pendidikan' => 'Lama Pendidikan',
