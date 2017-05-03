@@ -80,7 +80,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		'emails' => array(
-			'taufik' => 'taufikaffandi@gontor.ac.id',
+			'taufik' => 'taufiqaffandi@gontor.ac.id',
 			'eko' => 'ekoprasetiowidhi@unida.gontor.ac.id',
 			'pmb' => 'pmb@unida.gontor.ac.id',
 			'mantingan' => 'baakmantingan@gmail.com'
