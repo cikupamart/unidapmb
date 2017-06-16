@@ -46,7 +46,7 @@ class PmbController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','view'),
+				'actions'=>array('update','view','export'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -58,6 +58,37 @@ class PmbController extends Controller
 			),
 		);
 	}
+
+	public function actionExport()
+	{
+
+		
+		$model = new Pmb;
+
+		if(!empty($_POST['Pmb']))
+		{
+
+			$this->layout = '';
+			$model->TANGGAL_AWAL = $_POST['Pmb']['TANGGAL_AWAL'];
+			$model->TANGGAL_AKHIR = $_POST['Pmb']['TANGGAL_AKHIR'];
+
+			$this->renderPartial('_exportlist',array(
+				'model' => $model,
+			));
+
+			exit;
+		}
+
+		
+		$this->render('export',array(
+			'model' => $model,
+		));
+
+		// $this->render('export',array(
+		// 	$model
+		// ));
+	}
+
 
 	public function actionPrint($id,$token)
 	{

@@ -52,6 +52,9 @@
 class Pmb extends CActiveRecord
 {
 
+	public $TANGGAL_AWAL;
+	public $TANGGAL_AKHIR;
+
 	public $verifyCode;
 	/**
 	 * @return string the associated database table name
@@ -146,6 +149,14 @@ class Pmb extends CActiveRecord
 			'verifyCode'=>'Verification Code',
 			'token' => 'Token'
 		);
+	}
+
+	public function searchPmb()
+	{
+		$criteria = new CDbCriteria; 
+		$criteria->addBetweenCondition('created', $this->TANGGAL_AWAL, $this->TANGGAL_AKHIR, 'AND');
+
+		return Pmb::model()->findAll($criteria);
 	}
 
 	/**
