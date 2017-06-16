@@ -155,6 +155,7 @@ class Pmb extends CActiveRecord
 	{
 		$criteria = new CDbCriteria; 
 		$criteria->addBetweenCondition('created', $this->TANGGAL_AWAL, $this->TANGGAL_AKHIR, 'AND');
+		$criteria->order = 'created DESC';
 
 		return Pmb::model()->findAll($criteria);
 	}
