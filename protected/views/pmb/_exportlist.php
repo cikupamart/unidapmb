@@ -11,6 +11,7 @@ header('Cache-Control: max-age=0');
 
 <table border="1px">
 <tr>
+<th>No</th>
 <th>Nama Peserta</th>
 <th>TTL</th>
 <th>Jenis Kelamin</th>
@@ -50,13 +51,14 @@ header('Cache-Control: max-age=0');
 </tr>
 <?php
 
-
+$i=0;
 foreach($model->searchPmb() as $m)
 {
-
+$i++;
 ?>
   
 <tr>
+<td><?php echo $i;?></td>
 <td><?php echo $m->nama_peserta;?></td>
 <td><?php echo $m->tempat_lahir.', '.$m->tanggal_lahir;?></td>
 <td><?php echo $m->jenis_kelamin;?></td>
