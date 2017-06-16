@@ -69,8 +69,8 @@ class PmbController extends Controller
 		{
 
 			$this->layout = '';
-			$model->TANGGAL_AWAL = $_POST['Pmb']['TANGGAL_AWAL'];
-			$model->TANGGAL_AKHIR = $_POST['Pmb']['TANGGAL_AKHIR'];
+			$model->TANGGAL_AWAL = $_POST['Pmb']['TANGGAL_AWAL'].' 00:00:00';
+			$model->TANGGAL_AKHIR = $_POST['Pmb']['TANGGAL_AKHIR'].' 23:59:59' ;
 
 			$this->renderPartial('_exportlist',array(
 				'model' => $model,
