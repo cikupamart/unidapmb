@@ -77,7 +77,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#cetak').click(function(){
-			window.location = '<?php echo Yii::app()->createUrl('pmb/print',array('id'=>$model->id_pmb));?>';
+			window.location = '<?php echo Yii::app()->createUrl('pmb/print',array('id'=>$model->id_pmb,'token'=>$model->token));?>';
 		});
 	});
 </script>
