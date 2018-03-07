@@ -35,6 +35,7 @@
 				array('label'=>'Pendaftar', 'url'=>array('/pmb/admin')),
 				array('label'=>'Konten', 'url'=>array('/info/index')),
 				array('label'=>'Export', 'url'=>array('/pmb/export')),
+				array('label'=>'Fakultas', 'url'=>array('/fakultas/index')),
 				// array('label'=>'Contact', 'url'=>array('/site/contact')),
 				// array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
