@@ -42,7 +42,7 @@ class PmbController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create','captcha','index','import','preview','print'),
+				'actions'=>array('create','captcha','index','import','preview','print','panduan','info'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -57,6 +57,16 @@ class PmbController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function actionInfo()
+	{
+		$this->render('_info');
+	}
+
+	public function actionPanduan()
+	{
+		$this->render('_panduan');
 	}
 
 	public function actionExport()
