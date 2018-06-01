@@ -224,8 +224,10 @@ class Pmb extends CActiveRecord
 		$criteria->compare('rencana_studi',$this->rencana_studi,true);
 		$criteria->compare('created',$this->created,true);
 		$periode = Periode::model()->findByAttributes(array('status_aktivasi'=>'Y'));
-		if(!empty($periode))
-			$criteria->compare('periode_id',$periode->id_periode);
+		if(!empty($periode)){
+			$criteria->addBetweenCondition('created', $periode->tanggal_buka, $periode->tanggal_tutup);
+			// $criteria->compare('periode_id',$periode->id_periode);
+		}
 
 		$criteria->order = 'created DESC';
 
