@@ -287,6 +287,11 @@ class PmbController extends Controller
 			$token = md5(uniqid(rand(), true));
 			$model->token = $token;
 
+			$periode = Periode::model()->findByAttributes(array('status_aktivasi'=>'Y'));
+
+			if(!empty($periode))
+				$model->periode_id = $periode->id_periode;
+
 			if($model->save())
 			{
 

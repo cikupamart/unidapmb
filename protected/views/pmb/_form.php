@@ -40,6 +40,11 @@ $jobs = array(
 
 
 
+$periode = Periode::model()->findByAttributes(array('status_aktivasi'=>'Y'));
+
+$tahun = !empty($periode) ? $periode->tahun : date('Y');
+
+
 $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pmb-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -312,7 +317,8 @@ $form=$this->beginWidget('CActiveForm', array(
 	</div>
 
 	<div class="row">
-		<h3>G. INFORMASI PELENGKAP UNTUK ALUMNI KMI GONTOR 2017</h3>
+
+		<h3>G. INFORMASI PELENGKAP UNTUK ALUMNI KMI GONTOR <?=$tahun;?></h3>
 	</div>
 
 	<div class="row">

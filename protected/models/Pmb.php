@@ -82,7 +82,7 @@ class Pmb extends CActiveRecord
 			array('email','email'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_pmb, nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, kodepos, telp, hp, email, pesantren, nama_pesantren, tahun_lulus, lama_pendidikan, takhassus, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi, created, token', 'safe', 'on'=>'search'),
+			array('id_pmb, nama_peserta, tempat_lahir, tanggal_lahir, jenis_kelamin, pilihan_pertama, pilihan_kedua, pilihan_ketiga, alamat_lengkap, desa, kecamatan, kabupaten, propinsi, kodepos, telp, hp, email, pesantren, nama_pesantren, tahun_lulus, lama_pendidikan, takhassus, sd, smp, sma, nama_ayah, pendidikan_ayah, pekerjaan_ayah, penghasilan_ayah, nama_ibu, pendidikan_ibu, pekerjaan_ibu, penghasilan_ibu, pelatihan, skill, is_alumni, kampus_tujuan, rencana_studi, created, token, periode_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -106,6 +106,11 @@ class Pmb extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
+
+		$periode = Periode::model()->findByAttributes(array('status_aktivasi'=>'Y'));
+
+		$tahun = !empty($periode) ? $periode->tahun : date('Y');
+
 		return array(
 			'id_pmb' => 'Id Pmb',
 			'nama_peserta' => 'Nama Peserta',
@@ -142,12 +147,13 @@ class Pmb extends CActiveRecord
 			'penghasilan_ibu' => 'Penghasilan Per Bulan',
 			'pelatihan' => 'Pelatihan yang pernah diikuti',
 			'skill' => 'Skill/Keterampilan/Bakat yang dimiliki',
-			'is_alumni' => 'Apakah Anda Alumni Gontor 2017 ?',
+			'is_alumni' => 'Apakah Anda Alumni Gontor '.$tahun.' ?',
 			'kampus_tujuan' => 'Di kampus mana Anda akan mengikuti perkuliahan?',
 			'rencana_studi' => 'Rencana Studi di UNIDA',
 			'created' => 'Waktu Daftar',
 			'verifyCode'=>'Verification Code',
-			'token' => 'Token'
+			'token' => 'Token',
+			'periode_id' => 'Periode'
 		);
 	}
 
