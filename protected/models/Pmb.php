@@ -223,6 +223,10 @@ class Pmb extends CActiveRecord
 		$criteria->compare('kampus_tujuan',$this->kampus_tujuan,true);
 		$criteria->compare('rencana_studi',$this->rencana_studi,true);
 		$criteria->compare('created',$this->created,true);
+		$periode = Periode::model()->findByAttributes(array('status_aktivasi'=>'Y'));
+		if(!empty($periode))
+			$criteria->compare('periode_id',$periode->id_periode);
+
 		$criteria->order = 'created DESC';
 
 		return new CActiveDataProvider($this, array(
